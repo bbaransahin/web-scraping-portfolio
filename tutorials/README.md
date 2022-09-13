@@ -9,3 +9,4 @@ This directory consist of various code snippets of tutorials that I've move thro
 It looks like BeautifulSoup library isn't enough for some cases. Selenium is way more sophisticated tool to scrape these cases ( Only these cases because it isn't fast as BeautifulSoup ). I realized that while trying to scrape Youtube comments as you can see at "youtube-comments.py" file. I will try to do this task by using Selenium.
 
 - **simple-selenium.py:** Testing selenium installation.
+- **youtube-comments-selenium.py:** Simple comment scraper for youtube with selenium.
