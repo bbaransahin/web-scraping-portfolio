@@ -10,3 +10,4 @@ It looks like BeautifulSoup library isn't enough for some cases. Selenium is way
 
 - **simple-selenium.py:** Testing selenium installation.
 - **youtube-comments-selenium.py:** Simple comment scraper for youtube with selenium.
+- **product-scraper.py:** Product scraper from D&R's website ( just learning the basics ).
