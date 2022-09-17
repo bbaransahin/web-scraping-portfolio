@@ -2,6 +2,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
+print('Getting main page..')
 url = 'https://www.gtu.edu.tr/kategori/4/3/display.aspx'
 response = requests.get(url)
 soup=BeautifulSoup(response.text, 'html.parser')
@@ -11,6 +12,7 @@ soup=BeautifulSoup(response.text, 'html.parser')
 # div id='main-content'
 # initial link=https://www.gtu.edu.tr/kategori/4/3/display.aspx
 
+print('Collecting necessary pages..')
 soup = soup.find('div', {'id': 'main-content'})
 allLinkObjs = soup.find_all('a')
 allLinksDepartments = []
@@ -29,13 +31,10 @@ for link in allLinksDepartments:
         links = soup.find_all('a')
         for l in links:
             if ('Akademik Kadro' in l.text):
-                print('FOUND')
                 allLinks.append(l.get('href'))
     except Exception as e:
+        print('Error at page: '+link)
         print(e)
-
-for link in allLinks:
-    print(link)
 
 # Build a scraper function for these pages
 
@@ -48,6 +47,7 @@ def findMails(soup):
             mails.append(wordsList[wordsList.index('E-posta:')+1])
     return mails
 
+print('Scraping mails..')
 mails = []
 for link in allLinks:
     try:
@@ -61,5 +61,11 @@ for link in allLinks:
     except Exception as e:
         print(e)
 
-for i in mails:
-    print(i)
+output_file = open('Output.txt', 'w+')
+
+for mail in mails:
+    output_file.write(mail+'\n')
+
+output_file.close()
+
+print('DONE')
