@@ -3,7 +3,6 @@ import json
 import requests
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-from config import LINK_LIST_PATH, RAW_HTML_DIR
 
 LINK_LIST_PATH = "link_list0.txt"
 RAW_HTML_DIR = "rawhtmls"
